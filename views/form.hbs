@@ -6,3 +6,16 @@
     <input type="text" name="comment" id="comment">
     <input type="submit" value="Enviar">
 </form>
+    <ul>
+        {{#each leads}}
+            <li>
+                <strong>Name:</strong> {{this.name}} <br>
+                <strong>Email:</strong> {{this.email}} <br>
+                <strong>Number:</strong> {{this.number}} <br>
+                <strong>Comment:</strong> {{this.comment}} <br>
+                <strong>Date:</strong> {{this.date}} <br>
+            </li>
+            <br>
+        {{/each}}
+    </ul>
+    

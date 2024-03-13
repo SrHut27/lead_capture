@@ -11,7 +11,14 @@ connection.connect ((err) =>{
 })
 
 router.get('', (req, res) =>{
-    res.render('form');
+    connection.query('SELECT * from lead_cap', (err, results)=>{
+        if(err){
+            console.log('Erro ao tentar conectar com o banco de dados, por favor, tente masi tarde', err);
+            return res.redirect('/');
+        } else {
+            res.render('form', { leads: results});
+        }
+    });
 });
 
 router.get('/lead/add', (req, res) =>{
